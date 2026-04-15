@@ -1,0 +1,22 @@
+name: hello.py action
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  run_hello:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: SetPython
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.3'
+
+      - name: run hello.py
+        run: python hello.py
